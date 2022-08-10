@@ -813,8 +813,18 @@ int main(int argc, char **argv) {
               break;
           }
         }
-        
       } else if (command == '4') {
+        // Exploration Module
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } else if (command == '5') {
         std::cout << "Keyboard SLAM" << std::endl;
         
         int i = 3;
@@ -883,7 +893,7 @@ int main(int argc, char **argv) {
               break;
           }
         }
-      } else if (command == '5') {
+      } else if (command == '6') {
         std::cout << "Seek Green square mode" << std::endl;      
         
         double startRun = robot.getTime();
