@@ -919,10 +919,36 @@ int main(int argc, char **argv) {
         int row = 0;
         int col = 0;
         
+        int targetRow = 0, targetCol = 0;
+        std::cout << "[DABABY_MTRN4110_PhaseD] Input Target Position Row: " << std::endl;
+        while (robot.step(timeStep) != -1) {
+          const int prevCommand = command;
+          command = keyboard->getKey();
+          if (command != prevCommand) {
+            if (command >= '0' && command < '5') {
+              targetRow = command - '0';
+              std::cout << targetRow << std::endl;
+              break;
+            }
+          }
+        }
+         std::cout << "[DABABY_MTRN4110_PhaseD] Input Target Position Col: " << std::endl;
+        while (robot.step(timeStep) != -1) {
+          const int prevCommand = command;
+          command = keyboard->getKey();
+          if (command != prevCommand) {
+            if (command >= '0' && command < '9') {
+              targetCol = command - '0';
+              std::cout << targetCol << std::endl;
+              break;
+            }
+          }
+        }
+        
         int horizontalWalls[6][9] = {{1,1,1,1,1,1,1,1,1},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{1,1,1,1,1,1,1,1,1}};
         int verticalWalls[5][10] = {{1,0,0,0,0,0,0,0,0,1},{1,0,0,0,0,0,0,0,0,1},{1,0,0,0,0,0,0,0,0,1},{1,0,0,0,0,0,0,0,0,1},{1,0,0,0,0,0,0,0,0,1}};
         
-        printMap(horizontalWalls, verticalWalls, 0, 0, "S", 2, 4);
+        printMap(horizontalWalls, verticalWalls, 0, 0, "S", targetRow, targetCol);
         
         double leftDist = 0.0;
         double forwardDist = 0.0;
@@ -931,7 +957,7 @@ int main(int argc, char **argv) {
         std::cout << "[DABABY_MTRN4110_PhaseD] Checking Walls..." << std::endl;
         checkWalls(timeStep, leftDist, forwardDist, rightDist, robot, leftDS, frontDS, rightDS);
         communicateWalls(horizontalWalls, verticalWalls, row, col, bearing, leftDist, forwardDist, rightDist);
-        printMap(horizontalWalls, verticalWalls, 0, 0, "S", 2, 4);
+        printMap(horizontalWalls, verticalWalls, 0, 0, "S", targetRow, targetCol);
         std::cout << "[DABABY_MTRN4110_PhaseD] Ready for next input!" << std::endl;
         
         while (robot.step(timeStep) != -1) {
@@ -948,7 +974,7 @@ int main(int argc, char **argv) {
               std::cout << "[DABABY_MTRN4110_PhaseD] Checking Walls..." << std::endl;
               checkWalls(timeStep, leftDist, forwardDist, rightDist, robot, leftDS, frontDS, rightDS);
               communicateWalls(horizontalWalls, verticalWalls, row, col, bearing, leftDist, forwardDist, rightDist);
-              printMap(horizontalWalls, verticalWalls, 0, 0, "S", 2, 4);
+              printMap(horizontalWalls, verticalWalls, 0, 0, "S", targetRow, targetCol);
               std::cout << "[DABABY_MTRN4110_PhaseD] Ready for next input!" << std::endl;
           } else if (direction == webots::Keyboard::LEFT || direction == 'A' || direction == 'a') {
               std::cout << "[DABABY_MTRN4110_PhaseD] Turning..." << std::endl;
@@ -957,7 +983,7 @@ int main(int argc, char **argv) {
               std::cout << "[DABABY_MTRN4110_PhaseD] Checking Walls..." <<  std::endl;
               checkWalls(timeStep, leftDist, forwardDist, rightDist, robot, leftDS, frontDS, rightDS);
               communicateWalls(horizontalWalls, verticalWalls, row, col, bearing, leftDist, forwardDist, rightDist);
-              printMap(horizontalWalls, verticalWalls, 0, 0, "S", 2, 4);
+              printMap(horizontalWalls, verticalWalls, 0, 0, "S", targetRow, targetCol);
               std::cout << "[DABABY_MTRN4110_PhaseD] Ready for next input!" << std::endl;
           } else if (direction == webots::Keyboard::RIGHT || direction == 'D' || direction == 'd') {
               std::cout << "[DABABY_MTRN4110_PhaseD] Turning..." << std::endl;
@@ -966,7 +992,7 @@ int main(int argc, char **argv) {
               std::cout << "[DABABY_MTRN4110_PhaseD] Checking Walls..." <<  std::endl;
               checkWalls(timeStep, leftDist, forwardDist, rightDist, robot, leftDS, frontDS, rightDS);
               communicateWalls(horizontalWalls, verticalWalls, row, col, bearing, leftDist, forwardDist, rightDist);
-              printMap(horizontalWalls, verticalWalls, 0, 0, "S", 2, 4);
+              printMap(horizontalWalls, verticalWalls, 0, 0, "S", targetRow, targetCol);
               std::cout << "[DABABY_MTRN4110_PhaseD] Ready for next input!" << std::endl;
           } else if (direction == 'Q' || direction == 'q') {
               leftMotor->setVelocity(0.0);
