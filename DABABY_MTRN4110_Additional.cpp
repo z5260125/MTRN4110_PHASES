@@ -866,11 +866,11 @@ int main(int argc, char **argv) {
   
   
   //README for more detail on functions
-  std::cout << "Press 1 for Keyboard Mode" << std::endl;
-  std::cout << "Press 2 for Keyboard Sensor Mode" << std::endl;
-  std::cout << "Press 3 for Exploration Module" << std::endl;
-  std::cout << "Press 4 for Keyboard Mapping and Pathfinding" << std::endl;
-  std::cout << "Press 5 for Seek Green Square Mode" << std::endl;
+  std::cout << "[DABABY_MTRN4110_Features] Press 1 for Keyboard Mode" << std::endl;
+  std::cout << "[DABABY_MTRN4110_Features] Press 2 for Keyboard Sensor Mode" << std::endl;
+  std::cout << "[DABABY_MTRN4110_Features] Press 3 for Exploration Module" << std::endl;
+  std::cout << "[DABABY_MTRN4110_Features] Press 4 for Keyboard Mapping and Pathfinding" << std::endl;
+  std::cout << "[DABABY_MTRN4110_Features] Press 5 for Seek Green Square Mode" << std::endl;
   
   while (robot.step(timeStep) != -1) {
     const int prevCommand = command;
