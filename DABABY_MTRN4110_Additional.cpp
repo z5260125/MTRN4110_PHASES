@@ -877,7 +877,7 @@ int main(int argc, char **argv) {
     command = keyboard->getKey();
     if (command != prevCommand) {
       if (command == '1') {
-        std::cout << "Keyboard Mode";
+        std::cout << "[DABABY_MTRN4110_Features] Keyboard Mode";
         while (robot.step(timeStep) != -1) {
         
           int direction{ -1 };
@@ -912,7 +912,7 @@ int main(int argc, char **argv) {
         }
       
       } else if (command == '2') {
-        std::cout << "Keyboard Sensor Mode" << std::endl;
+        std::cout << "[DABABY_MTRN4110_Features] Keyboard Sensor Mode" << std::endl;
         
         int i = 3;
         int bearing = 180;
@@ -976,6 +976,7 @@ int main(int argc, char **argv) {
         }
       } else if (command == '3') {
         // Exploration Module
+        std::cout << "[DABABY_MTRN4110_Features] Exploration Module" << std::endl;
         
         int currentRow = 0, currentCol = 0; //assumes starting pos
         int targetRow = 0, targetCol = 0;
@@ -1108,7 +1109,7 @@ int main(int argc, char **argv) {
         printExplorationModuleMap(vWallArr, hWallArr, targetRow, targetCol);
 
       } else if (command == '4') {
-        std::cout << "Keyboard SLAM" << std::endl;
+        std::cout << "[DABABY_MTRN4110_Features] Keyboard Mapping and Pathfinding" << std::endl;
         
         int targetRow = 0, targetCol = 0;
         std::cout << "Input Target Position Row: " << std::endl;
@@ -1203,7 +1204,7 @@ int main(int argc, char **argv) {
           }
         }
       } else if (command == '5') {
-        std::cout << "Seek Green square mode" << std::endl;      
+        std::cout << "[DABABY_MTRN4110_Features] Seek Green square mode" << std::endl;      
         
         double startRun = robot.getTime();
         
