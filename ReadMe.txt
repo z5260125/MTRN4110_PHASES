@@ -38,7 +38,7 @@ How to run Phase D additional features
     2.2.9. The robot will print map with updated found walls to console after each motion step
     
     
-  2.3. Keyboard Sensor Mode
+  2.3. Exploration Module
     2.3.1. Press 3 on keyboard
     2.3.2. Press a number between 0 and 4 on keyboard to set targetRow where 0 is the topmost row and 4 is the bottom row
     2.3.3. Press a number between 0 and 8 on keyboard to set targetCol where 0 is the leftmost column and 8 is the rightmost column   
