@@ -887,16 +887,16 @@ int main(int argc, char **argv) {
               direction = keyboard->getKey();
           }
     
-          if (direction == webots::Keyboard::UP) {
+          if (direction == webots::Keyboard::UP || direction == 'W' || direction == 'w') {
               leftMotor->setVelocity(3.14);
               rightMotor->setVelocity(3.14);
-          } else if (direction == webots::Keyboard::DOWN) {
+          } else if (direction == webots::Keyboard::DOWN || direction == 'S' || direction == 's') {
               leftMotor->setVelocity(-3.14);
               rightMotor->setVelocity(-3.14);
-          } else if (direction == webots::Keyboard::LEFT) {
+          } else if (direction == webots::Keyboard::LEFT || direction == 'A' || direction == 'a') {
               leftMotor->setVelocity(-3.14);
               rightMotor->setVelocity(3.14);
-          } else if (direction == webots::Keyboard::RIGHT) {
+          } else if (direction == webots::Keyboard::RIGHT || direction == 'D' || direction == 'd') {
               leftMotor->setVelocity(3.14);
               rightMotor->setVelocity(-3.14);
           } else if (direction == ' ') {
